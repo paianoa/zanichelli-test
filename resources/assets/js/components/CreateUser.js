@@ -1,86 +1,169 @@
 // CreateItem.js
 
 import React, {Component} from 'react';
-import { browserHistory } from 'react-router'
+import history from '../history'
+import {makeStyles} from '@material-ui/styles';
+import Button from '@material-ui/core/Button';
+import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import axios from "axios/index";
+
 
 class CreateUser extends Component {
 
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {productName: '', productPrice: ''};
+        this.state = {name: '', email: '', password: ''};
 
-        this.handleChange3 = this.handleChange3.bind(this);
-        this.handleChange1 = this.handleChange1.bind(this);
-        this.handleChange2 = this.handleChange2.bind(this);
+
+        this.handleChange = this.handleChange.bind(this);
+
         this.handleSubmit = this.handleSubmit.bind(this);
+
+
     }
-    handleChange1(e){
-        this.setState({
-            name: e.target.value
-        })
+
+
+    componentDidMount() {
+
+        if (this.props.editMode === true) {
+            axios.get(`/users/${this.props.id}/edit`)
+                .then(response => {
+                    this.setState({
+                        name: response.data.name,
+                        email: response.data.email,
+                        password: response.data.password
+                    });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
     }
-    handleChange2(e){
-        this.setState({
-            email: e.target.value
-        })
+
+    handleChange(e) {
+        var newstate = {};
+        newstate[e.target.name] = e.target.value;
+        this.setState(newstate);
+
+        //ES6: this.setState([e.target.id] = e.target.value);
     }
-    handleChange3(e){
-        this.setState({
-            password: e.target.value
-        })
+
+    componentDidUpdate() {
+        console.log(this.state);
     }
-    handleSubmit(e){
+
+    handleSubmit(e) {
+
         e.preventDefault();
         const users = {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
-        }
+        };
+
         let uri = '/users';
-        axios.post(uri, users).then((response) => {
-             browserHistory.push('/display-user');
-        });
+        if (this.props.editMode === true) {
+            uri += '/' + this.props.id;
+            axios.patch(uri, users).then((response) => {
+                if ('callback' in this.props)
+                    this.props.callback()
+
+            });
+        }
+        else {
+
+            console.log('post ' + users);
+            axios.post(uri, users).then((response) => {
+                if ('callback' in this.props)
+                    this.props.callback()
+
+            });
+        }
 
 
     }
 
     render() {
+        const {email, name, password} = this.state;
+
+        const style = {fontSize: 18};
+
         return (
             <div>
-                <h1>Create An Item</h1>
-                <form onSubmit={this.handleSubmit}>
+
+
+                <ValidatorForm
+                    ref="form"
+                    onSubmit={this.handleSubmit}
+                    onError={errors => console.log(errors)}
+                >
+
+
                     <div className="row">
                         <div className="col-md-6">
                             <div className="form-group">
-                                <label>Name:</label>
-                                <input type="text" className="form-control" onChange={this.handleChange1}/>
+                                <TextValidator
+                                    label="Name"
+                                    InputProps={{style}}
+                                    InputLabelProps={{style}}
+                                    FormHelperTextProps={{style}}
+                                    onChange={this.handleChange}
+                                    name="name"
+                                    value={name}
+                                    validators={['required']}
+                                    errorMessages={['this field is required']}
+                                />
                             </div>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-md-6">
                             <div className="form-group">
-                                <label>email:</label>
-                                <input type="text" className="form-control col-md-6" onChange={this.handleChange2}/>
+                                <TextValidator
+                                    InputProps={{style}}
+                                    InputLabelProps={{style}}
+                                    FormHelperTextProps={{style}}
+                                    label="Email"
+                                    onChange={this.handleChange}
+                                    name="email"
+                                    value={email}
+                                    validators={['required', 'isEmail']}
+                                    errorMessages={['this field is required', 'email is not valid']}
+                                />
                             </div>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-md-6">
                             <div className="form-group">
-                                <label>password:</label>
-                                <input type="text" className="form-control col-md-6" onChange={this.handleChange3}/>
+                                <TextValidator
+                                    InputProps={{style}}
+                                    InputLabelProps={{style}}
+                                    FormHelperTextProps={{style}}
+                                    label="Password"
+                                    onChange={this.handleChange}
+                                    name="password"
+                                    value={password}
+                                    validators={['required']}
+                                    errorMessages={['this field is required']}
+                                />
                             </div>
                         </div>
                     </div>
-                    <br />
-                    <div className="form-group">
-                        <button className="btn btn-primary">Create User</button>
+                    <hr/>
+                    <div className="row">
+                        <div className="col-md-6">
+                            <Button className="btn btn-primary" style={{fontSize: 20}} type="submit">Submit</Button>
+                        </div>
                     </div>
-                </form>
+
+                </ValidatorForm>
+
+
             </div>
         )
     }
 }
+
 export default CreateUser;

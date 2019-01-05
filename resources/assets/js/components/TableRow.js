@@ -1,13 +1,16 @@
 // TableRow.js
 
 import React, { Component } from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Router } from 'react-router';
+import { Link } from 'react-router-dom'
+import { Button} from 'react-bootstrap';
 
 
 class TableRow extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
     handleSubmit(event) {
         event.preventDefault();
@@ -20,6 +23,13 @@ class TableRow extends Component {
         this.props.onDelete(this.props.obj.id);
 
     }
+
+    handleEdit(){
+        this.props.editCb(this.props.obj.id)
+
+    }
+
+
     render() {
         return (
             <tr>
@@ -36,7 +46,8 @@ class TableRow extends Component {
                     {this.props.obj.password}
                 </td>
                 <td>
-                    <Link to={"edit/"+this.props.obj.id} className="btn btn-primary">Edit</Link>
+                    {/*<Link to={"edit/"+this.props.obj.id} className="btn btn-primary">Edit</Link>*/}
+                    <Button  onClick={this.handleEdit} className="btn btn-primary">Edit</Button>
                 </td>
                 <td>
                     <form onSubmit={this.handleSubmit}>

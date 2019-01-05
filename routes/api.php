@@ -31,7 +31,6 @@ Route::group(['middleware' => ['jwt.auth','api-header']], function () {
 });
 
 Route::group(['middleware' => 'api-header'], function () {
-
-
-    Route::resource('users', 'UserController');
+Route::resource('users', 'UserController');
 */
+

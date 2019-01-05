@@ -4,13 +4,33 @@ use Illuminate\Http\Request;
 use App\User;
 use JWTAuth;
 use JWTAuthException;
+
+
+/**
+* @OA\Info(title="My First API", version="0.1")
+*/
+
+/**
+ * @OA\Get(
+ *     path="/api/resource.json",
+ *     @OA\Response(response="200", description="An example resource")
+ * )
+ */
+
+
 class UserController extends Controller
 {
 
 
 
+
+
     /**
      * Display a listing of the resource.
+     *
+     * @queryParam user_id int required The id of the user. Example: 9
+     * @queryParam room_id string The id of the room.
+     * @bodyParam forever boolean Whether to ban the user forever. Example: false
      *
      * @return \Illuminate\Http\Response
      */
@@ -20,20 +40,12 @@ class UserController extends Controller
         return response()->json($items);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @bodyParam request string The id of the room. Example: {name:"andrae", email:"andrea@paino.org", password="asdf"}
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
