@@ -27,12 +27,12 @@ class CreateUser extends Component {
     componentDidMount() {
 
         if (this.props.editMode === true) {
-            axios.get(`/users/${this.props.id}/edit`)
+            axios.get(`/users/${this.props.id}`)
                 .then(response => {
                     this.setState({
-                        name: response.data.name,
-                        email: response.data.email,
-                        password: response.data.password
+                        name: response.data.data.name,
+                        email: response.data.data.email,
+                        password: response.data.data.password
                     });
                 })
                 .catch(function (error) {

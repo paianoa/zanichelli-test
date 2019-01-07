@@ -11,6 +11,21 @@
 |
 */
 
+Route::get('/openApi3.yaml',function () {
+
+    $openapi = \OpenApi\scan(base_path().'',['exclude'=>'vendor']);
+    header('Content-Type: application/x-yaml');
+    echo $openapi->toYaml();
+});
+
+Route::get('/openApi3.json',function () {
+
+    $openapi = \OpenApi\scan(base_path().'',['exclude'=>'vendor']);
+    header('Content-Type: application/json');
+    echo $openapi->toJson();
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });

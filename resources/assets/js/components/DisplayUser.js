@@ -35,7 +35,7 @@ class DisplayUser extends Component {
     componentDidMount(){
         axios.get('./users')
             .then(response => {
-                this.setState({ users: response.data });
+                this.setState({ users: response.data.data });
             })
             .catch(function (error) {
                 console.log(error);
