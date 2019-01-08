@@ -5,7 +5,7 @@ Dipendenze di base:\
 node >= 9.4\
 npm >= 5.6\
 php >= 7.0\
-composer > 1.2\
+composer >= 1.2\
 mysql/mariadb
 
 
