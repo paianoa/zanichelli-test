@@ -15,7 +15,7 @@ use JWTAuthException;
  *     version="0.1",
  *     termsOfService="http://localhost:8000/terms/",
  *     @OA\Contact(
- *         email="andrea.paiani@gmail.com"
+ *         email="andrea.paiano@gmail.com"
  *     ),
  *     @OA\License(
  *         name="Apache 2.0",
@@ -25,7 +25,7 @@ use JWTAuthException;
  *
  * @OA\Server(
  *   url= "http://localhost:8000/",
- *   description= "Local server web built-in Laravel framework"
+ *   description= "Local server-web built-in Laravel framework"
  *     )
  *
  * */
@@ -35,18 +35,7 @@ class UserController extends Controller
 {
 
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @queryParam user_id int required The id of the user. Example: 9
-     * @queryParam room_id string The id of the room.
-     * @bodyParam forever boolean Whether to ban the user forever. Example: false
-     *
-     * @return \Illuminate\Http\Response
-     ** @param Request $request
-     * @return Response
-     *
-     **/
+
 
 
     /**
@@ -81,6 +70,37 @@ class UserController extends Controller
      *       )
      * )
      **/
+    /**
+     * Display a list of the users.
+     *
+     *
+     * @response {
+     *  "code":200,
+     *  "message":"Success",
+     *  "data": [{
+     *  "id": 4,
+     *  "name": "Jessica Jones",
+     *  "password": "pass",
+     *  "email": "andrea@paiano.org"
+     *  },
+     * {
+     * "id": 5,
+     *  "name": "Andra Bianchi",
+     *  "password": "pass",
+     *  "email": "andrea@bianchi.com"
+     * },
+     * {
+     * "id": 6,
+     *  "name": "Andra Rossi",
+     *  "password": "passrossi",
+     *  "email": "andrea@rossi.com"
+     * }]
+     *
+     * }
+     * @response 400{}
+     * @response 500{}
+     *
+     **/
     public function index()
     {
         try {
@@ -95,6 +115,7 @@ class UserController extends Controller
 
 
     }
+
 
     /**
      * @OA\Post(path="/users",
@@ -139,6 +160,28 @@ class UserController extends Controller
      *       )
      * )
      */
+
+    /**
+     * Create a new user
+     *
+     * @bodyParam name string required The new name of the user. Example: paiano
+     * @bodyParam email string required The new email of the user. Example: andrea@paiano.org
+     * @bodyParam password string required The new password of the user. Example: newpass
+     *
+     * @response {
+     *  "code":200,
+     *  "message":"Successfully created",
+     *  "data": {
+     *  "id": 4,
+     *  "name": "Jessica Jones",
+     *  "password": "pass",
+     *  "email": "andrea@paiano.org"
+     *  }
+     * }
+     * @response 400{}
+     * @response 500{}
+     *
+     **/
     public function store(Request $request)
     {
 
@@ -202,6 +245,26 @@ class UserController extends Controller
      * )
      *
      */
+    /**
+     * Display a user.
+     *
+     * @queryParam id required The id of the user. Example: 1
+     * @response {
+     *  "code":200,
+     *  "message":"Successfully Retrieved",
+     *  "data": {
+     *  "id": 4,
+     *  "name": "Jessica Jones",
+     *  "password": "pass",
+     *  "email": "andrea@paiano.org"
+     *  }
+     * }
+     * @response 404 {
+     *  "message": "Model not found"
+     * }
+     *
+     *
+     **/
     public function show($id)
     {
         $user = User::find($id);
@@ -255,6 +318,30 @@ class UserController extends Controller
      *       )
      * )
      */
+    /**
+     * Update a user
+     *
+     * @queryParam id  required The id of the user. Example: 1
+     * @bodyParam name string required The new name of the user. Example: paiano
+     * @bodyParam email string required The new email of the user. Example: andrea@paiano.org
+     * @bodyParam password string required The new password of the user. Example: newpass
+     *
+     * @response {
+     *  "code":200,
+     *  "message":"Successfully Updated",
+     *  "data": {
+     *  "id": 1,
+     *  "name": "Jessica Jones",
+     *  "password": "pass",
+     *  "email": "andrea@paiano.org"
+     *  }
+     * }
+     * @response 404 {}
+     * @response 400 {}
+     * @response 500 {}
+     *
+     *
+     **/
     public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -324,6 +411,25 @@ class UserController extends Controller
      *       )
      * )
      */
+    /**
+     * Delete a user
+     *
+     * @queryParam id required The id of the user Example: 1
+     *
+     * @response {
+     *  "code":200,
+     *  "message":"Successfully Deleted",
+     *  "data": {
+     *  "id": 1,
+     *  "name": "Jessica Jones",
+     *  "password": "pass",
+     *  "email": "andrea@paiano.org"
+     *  }
+     * }
+     * @response 404 {}
+     * @response 500 {}
+     *
+     **/
     public function destroy($id)
     {
         $user = User::find($id);

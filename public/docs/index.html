@@ -46,617 +46,16 @@
           <!-- START_INFO -->
 <h1>Info</h1>
 <p>Welcome to the generated API reference.
-<a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<a href="http://localhost:8000/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
 <h1>general</h1>
 <!-- START_89966bfb9ab533cc3249b91a9090d3dc -->
-<h2>Display a listing of the resource.</h2>
+<h2>Display a list of the users.</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET -G "http://localhost:8000/users"     -d "forever"="false" </code></pre>
+<pre><code class="language-bash">curl -X GET -G "http://localhost:8000/users" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost:8000/users");
-
-    let params = {
-            "user_id": "9",
-            "room_id": "BeH46psdXdrUetC5",
-        };
-    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-let body = JSON.stringify({
-    "forever": "",
-})
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (200):</p>
-</blockquote>
-<pre><code class="language-json">[
-    {
-        "id": 1,
-        "name": "Georgiana Koepp",
-        "email": "romaguera.doyle@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "fjHbuCMJdP",
-        "created_at": "2019-01-05 12:34:39",
-        "updated_at": "2019-01-05 12:34:39"
-    },
-    {
-        "id": 2,
-        "name": "Noemi Heller",
-        "email": "larkin.marley@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "3m1Hu9LIZX",
-        "created_at": "2019-01-05 12:34:39",
-        "updated_at": "2019-01-05 12:34:39"
-    },
-    {
-        "id": 3,
-        "name": "Robert Haag",
-        "email": "zora.quigley@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "7NzhU1mxnY",
-        "created_at": "2019-01-05 12:34:39",
-        "updated_at": "2019-01-05 12:34:39"
-    },
-    {
-        "id": 4,
-        "name": "Lilliana Langosh",
-        "email": "mayer.jessika@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "iDdHuhChFy",
-        "created_at": "2019-01-05 12:34:39",
-        "updated_at": "2019-01-05 12:34:39"
-    },
-    {
-        "id": 5,
-        "name": "Jerrod Grimes",
-        "email": "karianne.gaylord@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "BIf0ue1v4M",
-        "created_at": "2019-01-05 12:34:39",
-        "updated_at": "2019-01-05 12:34:39"
-    },
-    {
-        "id": 6,
-        "name": "Mr. Alan Kub I",
-        "email": "rico20@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "XYmH3jFIfC",
-        "created_at": "2019-01-05 12:34:39",
-        "updated_at": "2019-01-05 12:34:39"
-    },
-    {
-        "id": 7,
-        "name": "Raphaelle Moen DVM",
-        "email": "kuhic.michale@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "ldpVEntVBI",
-        "created_at": "2019-01-05 12:34:39",
-        "updated_at": "2019-01-05 12:34:39"
-    },
-    {
-        "id": 8,
-        "name": "Dina Schneider",
-        "email": "dayton.armstrong@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "zUAdWIcjMR",
-        "created_at": "2019-01-05 12:34:39",
-        "updated_at": "2019-01-05 12:34:39"
-    },
-    {
-        "id": 9,
-        "name": "Mr. Jaleel Stehr DVM",
-        "email": "susan67@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "sKhm85nTmS",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 10,
-        "name": "Roslyn Klein",
-        "email": "hruecker@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "p8rrQEDWtO",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 11,
-        "name": "Janelle Kuhlman",
-        "email": "vwiza@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "OLlxef2StS",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 12,
-        "name": "Sheila Block V",
-        "email": "elinore43@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "zEvEasWJIk",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 13,
-        "name": "Mose McDermott",
-        "email": "west.aiyana@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "hlgVP2RGsc",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 14,
-        "name": "Mr. Johnathon Kulas",
-        "email": "dario19@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "RlyDZOIhxU",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 15,
-        "name": "Shaina Rodriguez DDS",
-        "email": "kprohaska@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "wEVrHbLC66",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 16,
-        "name": "Dr. Mike Block PhD",
-        "email": "aliya08@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "IcvtsMm90I",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 17,
-        "name": "Colby Wunsch",
-        "email": "legros.ena@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "tEqOgTDJVi",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 18,
-        "name": "Norma Goldner",
-        "email": "betty73@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "wkpUlVgfSI",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 19,
-        "name": "Karolann Berge",
-        "email": "korey67@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "tIpUz5bs4i",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 20,
-        "name": "Prof. Elenor Lind DDS",
-        "email": "tyler.braun@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "YR8cIRxJq3",
-        "created_at": "2019-01-05 12:34:40",
-        "updated_at": "2019-01-05 12:34:40"
-    },
-    {
-        "id": 21,
-        "name": "Prof. Baron Brown I",
-        "email": "jorge.bahringer@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "MR5e4HjXFX",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 22,
-        "name": "Maximo Rowe",
-        "email": "ephraim.bartoletti@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "ZgiL8zwuA8",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 23,
-        "name": "Waylon Balistreri",
-        "email": "sabina.hamill@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "6tB3YztrN5",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 24,
-        "name": "Shany Kling",
-        "email": "xlynch@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "rBgL6NTZvz",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 25,
-        "name": "Ms. Augusta Hills Jr.",
-        "email": "tressie87@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "8BNhuFVjmG",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 26,
-        "name": "Leonard Littel",
-        "email": "runolfsdottir.penelope@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "qdQFYJndEu",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 27,
-        "name": "Kyra Langworth",
-        "email": "marielle.gorczany@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "mJelMtIHnZ",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 28,
-        "name": "Timmothy Hermiston",
-        "email": "blabadie@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "vKaTOqKjoL",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 29,
-        "name": "Georgianna Grant",
-        "email": "sadie53@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "u7QssZOuaC",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 30,
-        "name": "Viva Rempel",
-        "email": "zgottlieb@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "TbErBY1h85",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 31,
-        "name": "Muhammad Herzog I",
-        "email": "ruecker.guido@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "JK9HfaTZRs",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 32,
-        "name": "Elizabeth Jerde",
-        "email": "darlene.daugherty@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "SboLE2w1u3",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 33,
-        "name": "Alvera Bartoletti",
-        "email": "kuphal.lonny@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "8IvUCC4I5I",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 34,
-        "name": "Junius Kirlin",
-        "email": "lolita.mann@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "LMcJ0qurOX",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 35,
-        "name": "Leslie Johnston",
-        "email": "desmond.hammes@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "qf3K0SZLAX",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 36,
-        "name": "Dr. Carmine Jerde",
-        "email": "asha81@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "vBSmqCu0jX",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 37,
-        "name": "Annette Bruen IV",
-        "email": "gottlieb.aron@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "oIkHsmRTKM",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 38,
-        "name": "Katarina Monahan",
-        "email": "margarita05@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "Z14RyI0aBI",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 39,
-        "name": "Miss Lera Aufderhar V",
-        "email": "hodkiewicz.xzavier@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "cvj7s1T0Vv",
-        "created_at": "2019-01-05 12:34:41",
-        "updated_at": "2019-01-05 12:34:41"
-    },
-    {
-        "id": 40,
-        "name": "Mr. Werner Hand Jr.",
-        "email": "jayne92@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "vaxFvxDoRL",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    },
-    {
-        "id": 41,
-        "name": "Emilia Pagac",
-        "email": "darius.hill@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "16Z1Cs8EhF",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    },
-    {
-        "id": 42,
-        "name": "Ulices Connelly",
-        "email": "wiegand.dorcas@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "EdnReJhEbg",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    },
-    {
-        "id": 43,
-        "name": "Danyka Strosin",
-        "email": "jbernier@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "CQ0fBUIWka",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    },
-    {
-        "id": 44,
-        "name": "Antonette Robel",
-        "email": "vemmerich@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "IOl7lg12e5",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    },
-    {
-        "id": 45,
-        "name": "Giovanni Lind",
-        "email": "osborne.bednar@example.net",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "okT9H7Ap5S",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    },
-    {
-        "id": 46,
-        "name": "Camila Yost",
-        "email": "dane16@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "9hkYF2RaOU",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    },
-    {
-        "id": 47,
-        "name": "Prof. Myrtie Dietrich",
-        "email": "osteuber@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "mLIfxF0O6N",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    },
-    {
-        "id": 48,
-        "name": "Dallas Considine",
-        "email": "brielle.pfannerstill@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "aGGsKV8su2",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    },
-    {
-        "id": 49,
-        "name": "Louisa Ruecker",
-        "email": "ctorphy@example.com",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "dFnrVhhXhe",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    },
-    {
-        "id": 50,
-        "name": "Jacynthe Mayer",
-        "email": "mollie86@example.org",
-        "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-        "remember_token": "3IzhjRSuJD",
-        "created_at": "2019-01-05 12:34:42",
-        "updated_at": "2019-01-05 12:34:42"
-    }
-]</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET users</code></p>
-<h4>Body Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>forever</td>
-<td>boolean</td>
-<td>optional</td>
-<td>Whether to ban the user forever.</td>
-</tr>
-</tbody>
-</table>
-<h4>Query Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>user_id</td>
-<td>optional</td>
-<td>int required The id of the user.</td>
-</tr>
-<tr>
-<td>room_id</td>
-<td>optional</td>
-<td>string The id of the room.</td>
-</tr>
-</tbody>
-</table>
-<!-- END_89966bfb9ab533cc3249b91a9090d3dc -->
-<!-- START_57a8a4ba671355511e22780b1b63690e -->
-<h2>Store a newly created resource in storage.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost:8000/users"     -d "request"="{name:&amp;quot;andrae&amp;quot;, email:&amp;quot;andrea@paino.org&amp;quot;, password=&amp;quot;asdf&amp;quot;}" </code></pre>
-<pre><code class="language-javascript">const url = new URL("http://localhost:8000/users");
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-let body = JSON.stringify({
-    "request": "{name:&amp;quot;andrae&amp;quot;, email:&amp;quot;andrea@paino.org&amp;quot;, password=&amp;quot;asdf&amp;quot;}",
-})
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<h3>HTTP Request</h3>
-<p><code>POST users</code></p>
-<h4>Body Parameters</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>request</td>
-<td>string</td>
-<td>optional</td>
-<td>The id of the room.</td>
-</tr>
-</tbody>
-</table>
-<!-- END_57a8a4ba671355511e22780b1b63690e -->
-<!-- START_5693ac2f2e21af3ebc471cd5a6244460 -->
-<h2>Display the specified resource.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET -G "http://localhost:8000/users/{user}" </code></pre>
-<pre><code class="language-javascript">const url = new URL("http://localhost:8000/users/{user}");
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (200):</p>
-</blockquote>
-<pre><code class="language-json">null</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET users/{user}</code></p>
-<!-- END_5693ac2f2e21af3ebc471cd5a6244460 -->
-<!-- START_9c6e6c2d3215b1ba7d13468e7cd95e62 -->
-<h2>Show the form for editing the specified resource.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET -G "http://localhost:8000/users/{user}/edit" </code></pre>
-<pre><code class="language-javascript">const url = new URL("http://localhost:8000/users/{user}/edit");
 
 let headers = {
     "Accept": "application/json",
@@ -673,24 +72,52 @@ fetch(url, {
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "id": 1,
-    "name": "Georgiana Koepp",
-    "email": "romaguera.doyle@example.com",
-    "password": "$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm",
-    "remember_token": "fjHbuCMJdP",
-    "created_at": "2019-01-05 12:34:39",
-    "updated_at": "2019-01-05 12:34:39"
+    "code": 200,
+    "message": "Success",
+    "data": [
+        {
+            "id": 4,
+            "name": "Jessica Jones",
+            "password": "pass",
+            "email": "andrea@paiano.org"
+        },
+        {
+            "id": 5,
+            "name": "Andra Bianchi",
+            "password": "pass",
+            "email": "andrea@bianchi.com"
+        },
+        {
+            "id": 6,
+            "name": "Andra Rossi",
+            "password": "passrossi",
+            "email": "andrea@rossi.com"
+        }
+    ]
 }</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">[]</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">[]</code></pre>
 <h3>HTTP Request</h3>
-<p><code>GET users/{user}/edit</code></p>
-<!-- END_9c6e6c2d3215b1ba7d13468e7cd95e62 -->
-<!-- START_7fe085c671e1b3d51e86136538b1d63f -->
-<h2>Update the specified resource in storage.</h2>
+<p><code>GET users</code></p>
+<!-- END_89966bfb9ab533cc3249b91a9090d3dc -->
+<!-- START_b1c8bdc8cc374e78081d5db97aacfeb1 -->
+<h2>Display a user.</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://localhost:8000/users/{user}" </code></pre>
-<pre><code class="language-javascript">const url = new URL("http://localhost:8000/users/{user}");
+<pre><code class="language-bash">curl -X GET -G "http://localhost:8000/users/{id}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost:8000/users/{id}");
+
+    let params = {
+            "id": "1",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Accept": "application/json",
@@ -698,22 +125,254 @@ let headers = {
 }
 
 fetch(url, {
-    method: "PUT",
+    method: "GET",
     headers: headers,
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 200,
+    "message": "Successfully Retrieved",
+    "data": {
+        "id": 4,
+        "name": "Jessica Jones",
+        "password": "pass",
+        "email": "andrea@paiano.org"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Model not found"
+}</code></pre>
 <h3>HTTP Request</h3>
-<p><code>PUT users/{user}</code></p>
-<p><code>PATCH users/{user}</code></p>
-<!-- END_7fe085c671e1b3d51e86136538b1d63f -->
-<!-- START_a948aef61c80bf96137d023464fde21f -->
-<h2>Remove the specified resource from storage.</h2>
+<p><code>GET users/{id}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>The id of the user.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b1c8bdc8cc374e78081d5db97aacfeb1 -->
+<!-- START_57a8a4ba671355511e22780b1b63690e -->
+<h2>Create a new user</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE "http://localhost:8000/users/{user}" </code></pre>
-<pre><code class="language-javascript">const url = new URL("http://localhost:8000/users/{user}");
+<pre><code class="language-bash">curl -X POST "http://localhost:8000/users"     -d "name"="paiano" \
+    -d "email"="andrea@paiano.org" \
+    -d "password"="newpass" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost:8000/users");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "paiano",
+    "email": "andrea@paiano.org",
+    "password": "newpass",
+})
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 200,
+    "message": "Successfully created",
+    "data": {
+        "id": 4,
+        "name": "Jessica Jones",
+        "password": "pass",
+        "email": "andrea@paiano.org"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">[]</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">[]</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST users</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>The new name of the user.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>The new email of the user.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>The new password of the user.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_57a8a4ba671355511e22780b1b63690e -->
+<!-- START_b1e003a65e1fa2a5cd816d57cc7b9c84 -->
+<h2>Update a user</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PATCH "http://localhost:8000/users/{id}"     -d "name"="paiano" \
+    -d "email"="andrea@paiano.org" \
+    -d "password"="newpass" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost:8000/users/{id}");
+
+    let params = {
+            "id": "1",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = JSON.stringify({
+    "name": "paiano",
+    "email": "andrea@paiano.org",
+    "password": "newpass",
+})
+
+fetch(url, {
+    method: "PATCH",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 200,
+    "message": "Successfully Updated",
+    "data": {
+        "id": 1,
+        "name": "Jessica Jones",
+        "password": "pass",
+        "email": "andrea@paiano.org"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">[]</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">[]</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">[]</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PATCH users/{id}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>The new name of the user.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>required</td>
+<td>The new email of the user.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>The new password of the user.</td>
+</tr>
+</tbody>
+</table>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>The id of the user.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b1e003a65e1fa2a5cd816d57cc7b9c84 -->
+<!-- START_a32e1781d3beccb9337796c796d1f14e -->
+<h2>Delete a user</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost:8000/users/{id}" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost:8000/users/{id}");
+
+    let params = {
+            "id": "1",
+        };
+    Object.keys(params).forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Accept": "application/json",
@@ -726,9 +385,47 @@ fetch(url, {
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "code": 200,
+    "message": "Successfully Deleted",
+    "data": {
+        "id": 1,
+        "name": "Jessica Jones",
+        "password": "pass",
+        "email": "andrea@paiano.org"
+    }
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">[]</code></pre>
+<blockquote>
+<p>Example response (500):</p>
+</blockquote>
+<pre><code class="language-json">[]</code></pre>
 <h3>HTTP Request</h3>
-<p><code>DELETE users/{user}</code></p>
-<!-- END_a948aef61c80bf96137d023464fde21f -->
+<p><code>DELETE users/{id}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>The id of the user</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a32e1781d3beccb9337796c796d1f14e -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">
