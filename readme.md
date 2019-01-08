@@ -1,10 +1,10 @@
 ## Istruzioni
 
-Dipendenze di base:
+Dipendenze di base:\
 
-node >= 9.4
-npm >= 5.6
-php >= 7.0
+node >= 9.4\
+npm >= 5.6\
+php >= 7.0\
 composer > 1.2
 
 
@@ -18,35 +18,35 @@ DB_DATABASE=zanichelli\
 DB_USERNAME=root\
 DB_PASSWORD=password
 
-##Creazione DB vuoto
+## Creazione DB vuoto
 mysql -uroot -ppassword < CREATE DATABASE zanichelli;
 
-##Aggiornamento dipendenze Php
+## Aggiornamento dipendenze Php
 cd <project_home>\
 composer install
 
-##Aggiornamento dipendenze Javascript
+## Aggiornamento dipendenze Javascript
 cd <project_home>\
 npm install
 
-##Deploy DB e Seeding tabelle
+## Deploy DB e Seeding tabelle
 cd <project_home>\
 php artisan migration\
 php artisan db:seed
 
 
-##Init Built-in Server Web
+## Init Built-in Server Web
 php artisan serve
 
-##Test App API Consumer (ReactJs) 
+## Test App API Consumer (ReactJs) 
 Puntare con il browser ad http://localhost:8000/
 
-##OpenApi3.0 Json File (auto-generated) 
+## OpenApi3.0 Json File (auto-generated) 
 Puntare ad http://localhost:8000/openApi3.json
-##OpenApi3.0 Yaml File (auto-generated) 
+## OpenApi3.0 Yaml File (auto-generated) 
 Puntare ad http://localhost:8000/openApi3.yaml
 
-##API Documentation (auto-generated)
+## API Documentation (auto-generated)
 cd <project_home>\
 php artisan apidoc:generate\
 Puntare ad http://localhost:8000/docs\

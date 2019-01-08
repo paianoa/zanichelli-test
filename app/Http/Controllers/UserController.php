@@ -121,7 +121,6 @@ class UserController extends Controller
      * @OA\Post(path="/users",
      *   summary="Create user",
      *   description="Create new user",
-     *   operationId="createUser",
      *   @OA\RequestBody(
      *       required=true,
      *       description="User data",
