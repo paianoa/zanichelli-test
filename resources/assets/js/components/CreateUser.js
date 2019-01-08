@@ -77,7 +77,7 @@ class CreateUser extends Component {
         else {
 
             console.log('post ' + users);
-            axios.post(uri, users).then(function (response) {
+            axios.post(uri, users).then( (response) =>{
                 if ('callback' in this.props)
                     this.props.callback()
 
