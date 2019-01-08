@@ -29,7 +29,7 @@ composer install --no-dev
 
 ## Aggiornamento dipendenze Javascript
 cd <project_home>\
-npm install --only=prod\
+npm install\
 npm run dev
 
 
