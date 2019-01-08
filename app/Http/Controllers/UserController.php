@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use JWTAuth;
-use JWTAuthException;
+
 
 
 /**
@@ -33,10 +32,6 @@ use JWTAuthException;
 
 class UserController extends Controller
 {
-
-
-
-
 
     /**
      * @OA\Get(
