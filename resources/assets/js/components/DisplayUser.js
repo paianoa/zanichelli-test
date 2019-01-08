@@ -2,71 +2,93 @@
 
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
 import TableRow from './TableRow';
-import { Button, Modal} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 import CreateUser from "./CreateUser";
-
+import AlertDismissable from "./AlertDismissable";
 
 class DisplayUser extends Component {
     constructor(props) {
         super(props);
         this.onDelete = this.onDelete.bind(this);
         this.onEdit = this.onEdit.bind(this);
-        this.state = { users: '', show:false, editMode:false, id:-1};
+        this.state = {users: '', show: false, err: false, err_message:"",editMode: false, id: -1};
 
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
-
+        this.renderError = this.renderError.bind(this);
+        this.cancelError = this.cancelError.bind(this);
 
     }
 
     handleClose() {
-        this.setState({ show: false });
+        this.setState({show: false});
         // Force a render with a simulated state change
         console.log('reredenring')
         this.componentDidMount();
     }
 
-    handleShow(editMode=false,id=-1) {
-        this.setState({ show: true, editMode:editMode, id:id });
+    handleShow(editMode = false, id = -1) {
+        this.setState({show: true, editMode: editMode, id: id});
     }
 
-    componentDidMount(){
+    componentDidMount() {
         axios.get('./users')
             .then(response => {
-                this.setState({ users: response.data.data });
+                this.setState({users: response.data.data});
             })
             .catch(function (error) {
                 console.log(error);
             })
     }
-    tabRow(){
+
+    tabRow() {
 
 
-        if(this.state.users instanceof Array){
+        if (this.state.users instanceof Array) {
 
-            return this.state.users.map(function(object, i){
-                return <TableRow obj={object} key={i} editCb={this.onEdit}  onDelete={this.onDelete}/>;
-            },this)
+            return this.state.users.map(function (object, i) {
+                return <TableRow obj={object} key={i} editCb={this.onEdit} onDelete={this.onDelete}/>;
+            }, this)
         }
     }
 
-    onDelete(data){
+    onDelete(data, err,err_message) {
 
-        this.setState(prevState => ({
-            users: prevState.users.filter(function(item){ return item.id != data})
-        }))
+        if (err == false) {
+            this.setState(prevState => ({
+                err: false,
+                users: prevState.users.filter(function (item) {
+                    return item.id != data
+                })
+            }))
+        }
+        else {
+            this.setState({err: true,err_message:err_message});
 
+        }
     }
 
 
-    onEdit(id){
+    onEdit(id) {
 
-        this.handleShow(true,id);
+        this.handleShow(true, id);
     }
 
-    render(){
+
+    cancelError(){
+        this.setState({err: false});
+    }
+    renderError() {
+
+        if (this.state.err == true) {
+            return <AlertDismissable bsStyle="danger" message={this.state.err_message} parentOnDismiss={this.cancelError}></AlertDismissable>;
+        }
+        return <div/>;
+
+    }
+
+    render() {
         return (
             <div>
                 <h1>Users</h1>
@@ -79,8 +101,12 @@ class DisplayUser extends Component {
                             Create User
                         </Button>
                     </div>
-                </div><br />
+                </div>
+                <br/>
+                {
+                    this.renderError()
 
+                }
                 <table className="table table-hover">
                     <thead>
                     <tr>
@@ -107,9 +133,7 @@ class DisplayUser extends Component {
                     <Modal.Body>
                         <CreateUser editMode={this.state.editMode} id={this.state.id} callback={this.handleClose}/>
                     </Modal.Body>
-                  {/*  <Modal.Footer>
-                        <Button onClick={this.handleClose}>Close</Button>
-                    </Modal.Footer>*/}
+
                 </Modal>
 
 
@@ -117,4 +141,5 @@ class DisplayUser extends Component {
         )
     }
 }
+
 export default DisplayUser;

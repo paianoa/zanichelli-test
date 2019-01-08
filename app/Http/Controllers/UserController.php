@@ -346,7 +346,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         if (!$user) {
-            return response()->json('', 404);
+            return response()->json(['code' => 404, 'message' => 'User not found'], 404);
         }
 
         if (!$request->exists('name') ||

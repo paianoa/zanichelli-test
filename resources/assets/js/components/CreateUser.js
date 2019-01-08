@@ -6,6 +6,7 @@ import {makeStyles} from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import axios from "axios/index";
+import AlertDismissable from "./AlertDismissable";
 
 
 class CreateUser extends Component {
@@ -13,14 +14,14 @@ class CreateUser extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {name: '', email: '', password: ''};
+        this.state = {name: '', email: '', password: '',err:false,err_message:""};
 
 
         this.handleChange = this.handleChange.bind(this);
 
         this.handleSubmit = this.handleSubmit.bind(this);
 
-
+        this.onCancelError = this.onCancelError.bind(this);
     }
 
 
@@ -69,21 +70,29 @@ class CreateUser extends Component {
                 if ('callback' in this.props)
                     this.props.callback()
 
+            }).catch( (error)=> {
+                this.setState({err:true,err_message:error.message})
             });
         }
         else {
 
             console.log('post ' + users);
-            axios.post(uri, users).then((response) => {
+            axios.post(uri, users).then(function (response) {
                 if ('callback' in this.props)
                     this.props.callback()
 
-            });
+            }).catch( (error) =>{
+
+                this.setState({err:true,err_message:error.message})
+            });;
         }
 
 
     }
 
+    onCancelError(){
+        this.setState({err:false})
+    }
     render() {
         const {email, name, password} = this.state;
 
@@ -91,6 +100,9 @@ class CreateUser extends Component {
 
         return (
             <div>
+
+
+                {this.state.err == true ? (<AlertDismissable bsStyle="danger" message={this.state.err_message} parentOnDismiss={this.onCancelError}></AlertDismissable>): ("")}
 
 
                 <ValidatorForm
