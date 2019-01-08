@@ -49,5 +49,6 @@ Puntare ad http://localhost:8000/openApi3.yaml
 ## API Documentation (auto-generated)
 cd <project_home>\
 php artisan apidoc:generate\
-Puntare ad http://localhost:8000/docs\
+Puntare ad http://localhost:8000/docs
+
 (ignorare gli esempi di richieste e risposte poiche' il generatore al momento non supporta l'invio di parametri in formato json)
