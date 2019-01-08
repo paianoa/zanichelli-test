@@ -24,12 +24,12 @@ mysql -uroot -ppassword -e "CREATE DATABASE zanichelli;"
 
 ## Aggiornamento dipendenze Php
 cd <project_home>\
-composer install --no-dev\
+composer install --no-dev
 
 
 ## Aggiornamento dipendenze Javascript
 cd <project_home>\
-npm install --only=prod
+npm install --only=prod\
 npm run dev
 
 
