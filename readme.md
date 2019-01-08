@@ -30,6 +30,7 @@ composer install --no-dev\
 ## Aggiornamento dipendenze Javascript
 cd <project_home>\
 npm install --only=prod
+npm run dev
 
 
 ## Deploy DB e Seeding tabelle
