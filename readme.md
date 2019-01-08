@@ -6,7 +6,7 @@ node >= 9.4\
 npm >= 5.6\
 php >= 7.0\
 composer > 1.2\
-mysql
+mysql/mariadb
 
 
 ## Editare file .env (project_dir)
@@ -20,7 +20,7 @@ DB_USERNAME=root\
 DB_PASSWORD=password
 
 ## Creazione DB vuoto
-mysql -uroot -ppassword < CREATE DATABASE zanichelli;
+mysql -uroot -ppassword -e "CREATE DATABASE zanichelli;"
 
 ## Aggiornamento dipendenze Php
 cd <project_home>\
