@@ -4,7 +4,7 @@ Dipendenze di base:\
 
 node >= 9.4\
 npm >= 5.6\
-php >= 7.0 (with pdo_mysql,mbstring, ext-dom extensions enabled)\
+php >= 7.0 (with pdo_mysql,mbstring, ext-dom extensions enabled and related packages)\
 composer >= 1.2\
 mysql/mariadb
 
